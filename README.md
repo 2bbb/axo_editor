@@ -1,5 +1,7 @@
 # Axo Editor
 
+![Screenshot](https://github.com/2bbb/axo_editor/raw/master/ss.png)
+
 ## env
 
 only tested with
