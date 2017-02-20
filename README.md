@@ -12,7 +12,7 @@ only tested with
 ## install
 
 ```
-clone git@github.com:2bbb/axo_editor.git
+git clone git@github.com:2bbb/axo_editor.git
 cd axo_editor
 npm install
 npm start
