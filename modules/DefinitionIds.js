@@ -1,0 +1,1 @@
+module.exports = ['inlets', 'outlets', 'displays', 'params', 'attribs'];

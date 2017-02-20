@@ -1,0 +1,1 @@
+module.exports = ['declaration', 'init', 'srate', 'krate', 'midihandler'];

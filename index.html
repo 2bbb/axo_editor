@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>axo editor</title>
+        <link type="text/css" rel="stylesheet" href="css/index.css">
+        <script src="index.js"></script>
+        <script>
+            const path = require('path');
+            const uuid = require('node-uuid');
+            const MiscIds = require('./modules/MiscIds.js');
+            const DefinitionIds = require('./modules/DefinitionIds.js');
+            const CodeIds = require('./modules/CodeIds.js');
+        </script>
+        <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="#misc">misc</a>
+                <script>
+                    for(const id of CodeIds) {
+                        document.write(`<a href="#${id}">${id}</a>`);
+                    }
+                </script>
+            </nav>
+        </header>
+        <article id="main">
+            <section class="editor_component" id="misc">
+                <header><h1>misc</h1></header>
+                <article>
+                    <section class="sub_editor_component" id="info">
+                        <header><h1>info</h1></header>
+                        <dl>
+                            <dt>id</dt><dd><input class="misc" id="id" type="text"></dd>
+                            <script>
+                                const u = uuid.v4();
+                                document.write(`<dt>uuid</dt><dd><input class="misc" id="uuid" value="${u}"type="text" readonly="readonly"></dd>`);
+                            </script>
+                            <script>
+                                for(const id of MiscIds) {
+                                    document.write(`<dt>${id}</dt><dd><input id="${id}" type="text"></dd>`);
+                                }
+                            </script>
+                        </dl>
+                    </section>
+                    <script>
+                        for(const id of DefinitionIds) {
+                            document.write(`<section class="sub_editor_component" id="${id}"><header><h1>${id}</h1></header><div class="code_editor"></div></section>`);
+                        }
+                    </script>
+                </article>
+            </section>
+            <script>
+                for(const id of CodeIds) {
+                    document.write(`<section class="editor_component" id="${id}"><header><h1>${id}</h1></header><div class="code_editor"></div></section>`);
+                }
+            </script>
+        </article>
+        <footer></footer>
+        <script>
+            const vs_path = path.join(__dirname, 'node_modules/monaco-editor/min/vs');
+            require.config({ paths: { vs: vs_path} });
+            
+            // workaround monaco-css not understanding the environment
+            self.module = undefined;
+            // workaround monaco-typescript not understanding the environment
+            self.process.browser = true;
+
+            require(['vs/editor/editor.main'], function() {
+                onModuleLoaded();
+            });
+        </script>
+        <script>
+            const scripts = document.querySelectorAll('body script');
+            for(let i = 0; i < scripts.length; i++) {
+                scripts[i].parentNode.removeChild(scripts[i]);
+            }
+        </script>
+    </body>
+</html>

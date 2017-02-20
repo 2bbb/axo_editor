@@ -1,0 +1,21 @@
+{
+  "name": "axo_editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.1",
+    "electron-tabs": "^0.5.1",
+    "monaco-editor": "^0.8.1",
+    "node-uuid": "^1.4.7",
+    "xml-js": "^1.0.2"
+  }
+}

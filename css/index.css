@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+script {
+    display: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+html {
+    height: calc(100%);
+}
+body {
+    height: 100%;
+}
+
+body > header {
+    width: 100%;
+    height: 36px;
+    background-color: #222;
+}
+article#main {
+    width: 100%;
+    height: calc(100% - 56px);
+}
+
+body > footer {
+    width: 100%;
+    height: 20px;
+
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: #00f;
+}
+
+nav {
+    padding-top: 4px;
+    height: 32px;
+}
+nav > a, nav > a:hover, nav > a:active, nav > a:visited {
+    display: inline-block;
+    width: 120px;
+    height: 24px;
+    margin-left: 5px;
+
+    background-color: #444;
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    border-color: #444;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: monospace;
+}
+
+nav > a:active {
+    color: #6ca;
+}
+
+.editor_component {
+    width: 100%;
+    height: calc(100% - 0px);
+    background-color: #1a1a1a;
+}
+.editor_component > header {
+    width: 100%;
+    height: 20px;
+    background-color: #888;
+}
+.editor_component h1 {
+    padding: 3px;
+    
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: monospace;
+}
+.editor_component > .code_editor {
+    width: 100%;
+    height: calc(100% - 20px);
+}
+.editor_component {
+    display: none;
+}
+.editor_component:target {
+    display: block;
+}
+
+#misc > article {
+    width: 100%;
+    height: calc(100% - 20px);
+    margin: 0;
+    padding: 0;
+}
+
+.sub_editor_component {
+    width: calc(50% - 2px);
+    float: left;
+    height: calc(33% - 0px);
+    margin-right: 2px;
+    margin-bottom: 0.5px;
+}
+
+.sub_editor_component:nth-child(even) {
+    margin-right: 0;
+}
+
+.sub_editor_component dl {
+    width: 100%;
+}
+.sub_editor_component dt {
+    padding: 4px;
+    color: #fff;
+    width: 25%;
+    float: left;
+    clear: both;
+}
+
+.sub_editor_component dd {
+    padding: 4px;
+    width: 70%;
+    float: left;
+}
+
+.sub_editor_component > dl > dd > input {
+    width: 100%;
+    font-size: 16px;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: monospace;
+    border: #444;
+}
+
+.sub_editor_component > header {
+    width: 100%;
+    height: 20px;
+    background-color: #aaa;
+}
+
+.sub_editor_component h1 {
+    padding: 3px;
+    
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: monospace;
+}
+.sub_editor_component > .code_editor {
+    width: 100%;
+    height: calc(100% - 20px);
+}

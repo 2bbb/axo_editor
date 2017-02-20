@@ -1,0 +1,23 @@
+<objdefs appVersion="1.0.12">
+	<obj.normal id="" uuid="">
+		<sDescription>sDescription</sDescription>
+		<author>Unknown Author</author>
+		<license>MIT</license>
+		<helpPatch></helpPatch>
+		<inlets>
+		</inlets>
+		<outlets>
+		</outlets>
+		<displays>
+        </displays>
+		<params>
+		</params>
+		<attribs>
+	  	</attribs>
+		<code.declaration><![CDATA[]]></code.declaration>
+		<code.init><![CDATA[]]></code.init>
+		<code.krate><![CDATA[]]></code.krate>
+		<code.srate><![CDATA[]]></code.srate>
+		<code.midihandler><![CDATA[]]></code.midihandler>
+	</obj.normal>
+</objdefs>

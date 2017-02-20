@@ -1,0 +1,1 @@
+module.exports = ['sDescription', 'author', 'license', 'helpPatch'];
