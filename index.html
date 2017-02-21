@@ -59,23 +59,19 @@
         </article>
         <footer></footer>
         <script>
-            const vs_path = path.join(__dirname, 'node_modules/monaco-editor/min/vs');
-            require.config({ paths: { vs: vs_path} });
-            
-            // workaround monaco-css not understanding the environment
-            self.module = undefined;
-            // workaround monaco-typescript not understanding the environment
-            self.process.browser = true;
-
-            require(['vs/editor/editor.main'], function() {
-                onModuleLoaded();
-            });
-        </script>
-        <script>
             const scripts = document.querySelectorAll('body script');
             for(let i = 0; i < scripts.length; i++) {
                 scripts[i].parentNode.removeChild(scripts[i]);
             }
+        </script>
+        <script>
+            const vs_path = path.join(__dirname, 'node_modules/monaco-editor/min/vs');
+            require.config({ paths: { vs: vs_path} });
+            
+            self.module = undefined;
+            self.process.browser = true;
+
+            require(['vs/editor/editor.main'], onModuleLoaded);
         </script>
     </body>
 </html>

@@ -35,7 +35,7 @@ class FileContext {
 
         definition_ids.forEach(id => {
             if(!objnormal[id]) objnormal[id] = {};
-            objnormal[id] = definitions[id] ? xmljs.xml2js(definitions[id], { compact: true, spaces: 2 }) : '';
+            objnormal[id] = definitions[id] ? xmljs.xml2js(definitions[id], { compact: true, spaces: 2 })[id] : '';
         });
 
         code_ids.forEach(id => {
@@ -58,7 +58,7 @@ class FileContext {
     load(callback) {
         fs.readFile(this.path, 'utf8', (err, xml) => {
             if(err) return callback ? callback(err) : null;
-            this.private.data = JSON.parse(xmljs.xml2json(xml, { compact: true, spaces: 2 }));
+            this.private.data = xmljs.xml2js(xml, { compact: true, spaces: 2 });
             const objnormal = this.private.data.objdefs['obj.normal'];
 
             const miscs = {
@@ -71,7 +71,11 @@ class FileContext {
 
             const definitions = {};
             for(const id of definition_ids) {
-                definitions[id] = objnormal[id] ? xmljs.json2xml(objnormal[id], {compact: true, spaces: 4}) : '';
+                definitions[id] = objnormal[id] ? xmljs.js2xml({[id]: objnormal[id]}, {
+                    compact: true,
+                    spaces: 4
+                }) : '';
+                console.log(objnormal[id], definitions[id]);
             }
             
             const codes = {};

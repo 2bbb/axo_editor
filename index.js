@@ -7,12 +7,18 @@ const misc_ids = require('./modules/MiscIds.js');
 const definition_ids = require('./modules/DefinitionIds.js');
 const code_ids = require('./modules/CodeIds.js');
 
+const axo_cpp_monarch = require('./modules/axo_cpp_monarch.js');
+const AxoCppId = 'axo-cpp';
+
 const editors = {};
 function onModuleLoaded() {
+    monaco.languages.register({ id: AxoCppId });
+    monaco.languages.setMonarchTokensProvider(AxoCppId, axo_cpp_monarch.language);
+    monaco.languages.setLanguageConfiguration(AxoCppId, axo_cpp_monarch.configure);
+    const cpp_model = monaco.editor.createModel('', 'cpp');
     code_ids.forEach(id => {
         editors[id] = monaco.editor.create(document.getElementById(id).getElementsByTagName('div')[0], {
-            value: '',
-            language: 'cpp',
+            model: cpp_model,
             automaticLayout: true,
             theme: "vs-dark",
         });
