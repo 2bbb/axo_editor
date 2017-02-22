@@ -15,10 +15,10 @@ function onModuleLoaded() {
     monaco.languages.register({ id: AxoCppId });
     monaco.languages.setMonarchTokensProvider(AxoCppId, axo_cpp_monarch.language);
     monaco.languages.setLanguageConfiguration(AxoCppId, axo_cpp_monarch.configure);
-    const cpp_model = monaco.editor.createModel('', 'cpp');
     code_ids.forEach(id => {
         editors[id] = monaco.editor.create(document.getElementById(id).getElementsByTagName('div')[0], {
-            model: cpp_model,
+            value: '',
+            language: AxoCppId,
             automaticLayout: true,
             theme: "vs-dark",
         });
@@ -39,7 +39,6 @@ ipc.on('file/name', (evt, name) => {
 });
 
 ipc.on('file/opened', (evt, editables) => {
-    console.log(editables);
     document.getElementById('id').value = editables.miscs.id;
     document.getElementById('uuid').value = editables.miscs.uuid;
     misc_ids.forEach(id => { document.getElementById(id).value = editables.miscs[id]; });
