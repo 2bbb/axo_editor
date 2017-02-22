@@ -18,6 +18,14 @@ npm install
 npm start
 ```
 
+## build app
+
+```
+npm run build
+```
+
+or, `build-osx`, `build-win` (but not tested on windows!!)
+
 ## **many features is not implemented now**
 
 ## Author

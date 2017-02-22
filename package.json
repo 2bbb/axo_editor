@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager . axoedit --platform=darwin,win32 --arch=x64 --version=1.0.0 --extend-info=resource/info.plist",
+    "build-osx": "electron-packager . axoedit --platform=darwin --arch=x64 --version=1.0.0 --extend-info=resource/info.plist",
+    "build-win": "electron-packager . axoedit --platform=darwin --arch=win32 --version=1.0.0"
   },
   "keywords": [],
   "author": "",
